@@ -95,7 +95,7 @@ while True:
           
     if ball.xcor() > 390:
         ball.goto(0,0)
-        ball_dx = ball_dx * -1
+
         playerAscore = playerAscore + 1
         pen.clear()
         pen.write("Player A: {}                    Player B: {} ".format(playerAscore,playerBscore),align="center",font=('Monaco',24,"normal"))
@@ -105,7 +105,7 @@ while True:
   
     if(ball.xcor()) < -390: # Left width paddle Border
         ball.goto(0,0)
-        ball_dx = ball_dx * -1
+
         playerBscore = playerBscore + 1
         pen.clear()
         pen.write("Player A: {}                    Player B: {} ".format(playerAscore,playerBscore),align="center",font=('Monaco',24,"normal"))
@@ -115,10 +115,10 @@ while True:
   
     if(ball.xcor() > 340) and (ball.xcor() < 350) and (ball.ycor() < rightpaddle.ycor() + 40 and ball.ycor() > rightpaddle.ycor() - 40):
         ball.setx(340)
-        ball_dx = ball_dx * -1
+
         os.system("afplay paddle.wav&")
   
     if(ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
         ball.setx(-340)
-        ball_dx = ball_dx * -1
+
         os.system("afplay paddle.wav&")

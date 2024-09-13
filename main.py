@@ -36,9 +36,9 @@ ball.shape("circle")
 ball.color("red")
 ball.penup()
 ball.goto(5,5)
-ballxdirection=0.2
-ballydirection=0.2
-ball_dx=1
+ballxdirection=0.1
+ballydirection=0.1
+# Remove or use ball_dx as intended
   
 #Code for creating pen for scorecard update
 pen=t.Turtle()
@@ -57,7 +57,7 @@ def leftpaddleup():
   
 def leftpaddledown():
     y=leftpaddle.ycor()
-    y=y+90
+    y=y-90
     leftpaddle.sety(y)
   
 #code for moving the rightpaddle
@@ -68,7 +68,7 @@ def rightpaddleup():
   
 def rightpaddledown():
     y=rightpaddle.ycor()
-    y=y+90
+    y=y-90
     rightpaddle.sety(y)
   
 #Assign keys to play

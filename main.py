@@ -83,7 +83,7 @@ while True:
   
     #moving the ball
     ball.setx(ball.xcor()+ballxdirection)
-    ball.sety(ball.ycor()+ballxdirection)
+    ball.sety(ball.ycor()+ballydirection)
   
     #border set up
     if ball.ycor()>290:
@@ -113,12 +113,15 @@ while True:
   
      # Handling the collisions with paddles.
   
-    if(ball.xcor() > 340) and (ball.xcor() < 350) and (ball.ycor() < rightpaddle.ycor() + 40 and ball.ycor() > rightpaddle.ycor() - 40):
-        ball.setx(340)
+    def handle_paddle_collision(ball, paddle, is_right_paddle):
+        paddle_x = 340 if is_right_paddle else -340
+        if ((ball.xcor() > paddle_x and is_right_paddle) or (ball.xcor() < paddle_x and not is_right_paddle)) and \
+           (abs(ball.xcor() - paddle_x) < 10) and \
+           (ball.ycor() < paddle.ycor() + 40 and ball.ycor() > paddle.ycor() - 40):
+            ball.setx(paddle_x)
+            global ballxdirection
+            ballxdirection *= -1
+            os.system("afplay paddle.wav&")
 
-        os.system("afplay paddle.wav&")
-  
-    if(ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
-        ball.setx(-340)
-
-        os.system("afplay paddle.wav&")
+    handle_paddle_collision(ball, rightpaddle, True)
+    handle_paddle_collision(ball, leftpaddle, False)

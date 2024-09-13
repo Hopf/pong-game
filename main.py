@@ -83,7 +83,7 @@ while True:
   
     #moving the ball
     ball.setx(ball.xcor()+ballxdirection)
-    ball.sety(ball.ycor()+ballxdirection)
+    ball.sety(ball.ycor()+ballydirection)
   
     #border set up
     if ball.ycor()>290:
@@ -115,10 +115,12 @@ while True:
   
     if(ball.xcor() > 340) and (ball.xcor() < 350) and (ball.ycor() < rightpaddle.ycor() + 40 and ball.ycor() > rightpaddle.ycor() - 40):
         ball.setx(340)
+        ballxdirection=ballxdirection*-1
 
         os.system("afplay paddle.wav&")
   
     if(ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
         ball.setx(-340)
+        ballxdirection=ballxdirection*-1
 
         os.system("afplay paddle.wav&")

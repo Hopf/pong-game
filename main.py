@@ -38,7 +38,7 @@ ball.penup()
 ball.goto(5,5)
 ballxdirection=0.1
 ballydirection=0.1
-ball_dx=1
+# Remove or use ball_dx as intended
   
 #Code for creating pen for scorecard update
 pen=t.Turtle()
